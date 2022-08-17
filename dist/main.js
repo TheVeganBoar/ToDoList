@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelector("#content"),t=document.createElement("h1");t.textContent="Hello World, my name is THE VEGAN BOAR",e.appendChild(t)})();
