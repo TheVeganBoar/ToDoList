@@ -22,4 +22,6 @@ export function generateProjectModal(){
     form.appendChild(input)
     form.appendChild(submit)
     modal.appendChild(form)
+
+    return modal
 }
