@@ -69,4 +69,6 @@ export function generateItemModal(){
 
     modalContent.appendChild(itemModalForm)
     modal.appendChild(modalContent)
+
+    
 }
