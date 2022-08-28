@@ -1,4 +1,4 @@
-// Pending: import icon for "sort" feature
+// Pending: import sort icon for "sort" feature
 
 export function generateHeader() {
     const header = document.createElement('header')
@@ -57,4 +57,31 @@ export function generateHeader() {
     plusLi.appendChild(plusText)
     
     ul.appendChild(plusLi)
+    header.appendChild(ul)
+
+
+    // Sort feature
+    let sort = document.createElement('div')
+    sort.id = 'sort-bar'
+    // let sort_icon = (new Image())
+    // sort_icon.src
+    // sort_icon.id
+    sort.innerHTML = `<div> <span>Sort by:</span> <span data-sort='default' id='current-sort'>Date created</span> <span id='sort-direction' data-direction='asc'></span> </div>`
+    sort.querySelector('#sort-direction').appendChild(sort_icon)
+
+    // Sort options collapse
+    let options = ['Date created', 'Priority', 'Due date']
+    let sort_options = document.createElement('ul')
+    sort_options.id = 'sort-options'
+    sort_options.className = 'collapse'
+    for(let i=0; i<options.lenght; i++){
+        let option_li = document.createElement('li')
+        option_li.id = 1 == 0 ? 'default' : i == 1 ? 'priority' : 'date';
+        option_li.innerText = options[i]
+        sort_options.appendChild(option_li)
+    }
+    sort.appendChild(options)
+    header.appendChild(sort)
+
+    return header
 }
