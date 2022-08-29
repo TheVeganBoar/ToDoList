@@ -24,13 +24,24 @@ export function generateItemModal(){
     description.placeholder = 'Description'
     description.className = 'formItem description'
 
+    let dueDateLabel = docuemnt.createElement('label')
+    dueDateLabel.for = 'duedate'
     let due_date = document.createElement('input')
     due_date.type = 'date'
     due_date.name = 'duedate'
     due_date.className = 'formItem duedate'
 
-    let dueDateLabel = docuemnt.createElement('label')
-    dueDateLabel.for = 'duedate'
+    // Date showcase
+    let today = new Date()
+    let year = today.getFullYear()
+    let month = today.getMonth() + 1
+    let day = today.getDate()
+
+    // To make single digit days and months appear as "0X" || Sets default value of due_date input
+    month.toString().length == 1 ? month = `0${month}` : month=month;
+    day.toString().length == 1 ? day = `0${day}` : day=day;
+    due_date.defaultValue = `${month}-${day}-${year}`
+
 
     let priority = document.createElement('select')
     priority.className = 'hidden-priority'
@@ -70,5 +81,5 @@ export function generateItemModal(){
     modalContent.appendChild(itemModalForm)
     modal.appendChild(modalContent)
 
-    
+    return modal
 }
